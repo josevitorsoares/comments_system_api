@@ -1,17 +1,14 @@
-const express = require('express');
-const routes = express.Router();
+import { Router } from 'express';
+const commentsRoutes = Router();
 
-const comments_controler = require('../controllers/comments_controller.ts')
-const votation_controller = require('../controllers/votation_controller.ts')
+import { CommentsController } from "../controllers/CommentsController";
 
-routes.post('/create', comments_controler.create);
-routes.get('/read', comments_controler.read);
-routes.get('/read-one', comments_controler.readOne);
-routes.put('/update', comments_controler.update);
-routes.delete('/delete', comments_controler.delete);
+const commentController = new CommentsController()
 
-routes.patch('/vote', votation_controller.vote);
+commentsRoutes.post('/', commentController.create);
+commentsRoutes.get('/', commentController.read);
+// commentsRoutes.get('/', commentController.readOne);
+commentsRoutes.put('/', commentController.update);
+commentsRoutes.delete('/', commentController.delete);
 
-
-
-module.exports = routes;
+export { commentsRoutes };

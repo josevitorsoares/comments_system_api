@@ -1,12 +1,12 @@
 import express from 'express';
-const routes = require('../src/routes/comments.routes.ts')
+import { router } from './routes/index';
 
 const app = express();
 app.use(express.json());
 
 require('../database/db.ts')
 
-app.use(routes)
+app.use(router)
 
 
 app.listen(3333, () => {

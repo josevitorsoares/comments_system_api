@@ -20,5 +20,5 @@ class Comments extends Model {
         })
     }
 }
-module.exports = Comments
-export {};
+
+export { Comments };
