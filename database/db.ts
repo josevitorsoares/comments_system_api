@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
-const comments = require('../src/models/Comments.ts')
+import { Comments } from "../src/models/Comments";
 
 const sequelize = new Sequelize('Comments', 'postgres', 'root', {
     dialect: 'postgres',
     host: 'localhost',
     port: '5432',
 });
-comments.init(sequelize);
+Comments.init(sequelize);
 
 module.exports = sequelize;
