@@ -7,7 +7,7 @@ const commentController = new CommentsController()
 
 commentsRoutes.post('/', commentController.create);
 commentsRoutes.get('/', commentController.read);
-// commentsRoutes.get('/', commentController.readOne);
+commentsRoutes.get('/readone', commentController.readOne);
 commentsRoutes.put('/', commentController.update);
 commentsRoutes.delete('/', commentController.delete);
 

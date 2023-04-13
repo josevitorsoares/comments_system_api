@@ -3,7 +3,7 @@ import { json } from "sequelize";
 import { CommentServices } from '../services/Comments.service';
 
 class CommentsController {
-    
+
     async create(request, response) {
         const { title, owner, corp_message } = request.body;
 
@@ -18,12 +18,13 @@ class CommentsController {
         return response.status(200).send(json(comments));
     }
 
-    // async readOne(request, response) {
-    //     const { id } = request.body;
-    //     const comment = await new CommentServices().readOneComment(id)
+    async readOne(request, response) {
+        const { id } = request.body;
+        const comment = await new CommentServices().readOneComment({ id })
 
-    //     return response.status(400).send(json({ error: 'ID not found!' })); ''
-    // },
+        comment == 400 ? response.status(comment).send(json({ error: 'Error, ID not found!' }))
+            : response.status(200).send(json(comment));
+    }
 
     async update(request, response) {
         const { id, title, corp_message } = request.body;

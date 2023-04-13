@@ -31,13 +31,15 @@ class CommentServices {
         return comments;
     }
 
-    // async readOneComment({ id }) {
-    //     const comment = await Comments.findByPk(id);
+    async readOneComment({ id }) {
+        const comment = await Comments.findByPk(id);
 
-    //     if (comment) {
-    //     } else {
-    //     }
-    // }
+        if (comment) {
+            return comment;
+        } else {
+            return STATUSCODEERROR;
+        }
+    }
 
     async updateComment({ id, title, corp_message }) {
         const comment = await Comments.findByPk(id);
@@ -66,7 +68,5 @@ class CommentServices {
         }
     }
 }
-
-// module.exports = CommentServices
 
 export { CommentServices };
