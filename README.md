@@ -34,6 +34,7 @@ Finalizado. O desafio foi concluído, mas estou aguardando um Code Review com o 
 - `TypeScript`
 - `Sequelize`
 - `PostgreSQL`
+- `Git Flow`
 
 ## Extras
 
